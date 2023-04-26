@@ -45,4 +45,11 @@ jobs:
           context: docker
           push: true
           tags: quay.io/mloriedo/cloud-dev-images:docker
+      -
+        name: Build and push docker
+        uses: docker/build-push-action@v4
+        with:
+          context: fedora
+          push: true
+          tags: quay.io/mloriedo/cloud-dev-images:fedora
 
