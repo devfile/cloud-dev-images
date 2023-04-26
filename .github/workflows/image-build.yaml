@@ -38,6 +38,7 @@ jobs:
         with:
           context: busybox 
           push: true
+          tags: quay.io/mloriedo/cloud-dev-images:busybox
       -
         name: Build and push docker
         uses: docker/build-push-action@v4
