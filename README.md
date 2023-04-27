@@ -6,6 +6,7 @@
 
 <details>
   <summary>vscode entrypoint logs</summary>
+
   ```
   total 4
   drwxrwsrwx    5 root     10011100       124 Apr 26 22:55 .
@@ -59,6 +60,7 @@
   Error relocating /checode/checode-linux-musl/node: _ZNSi10_M_extractIdEERSiRT_: symbol not found
   ...
   ```
+
 </details>
 
 
