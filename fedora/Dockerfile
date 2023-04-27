@@ -1,4 +1,4 @@
-FROM docker.io/fedora:38
+FROM docker.io/fedora:39
 
 CMD ["tail", "-f", "/dev/null"]
 
