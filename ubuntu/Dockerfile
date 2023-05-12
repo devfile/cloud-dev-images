@@ -1,5 +1,11 @@
 FROM docker.io/ubuntu:23.04
 
+ENV HOME=/home/ubuntu
+ENV SHELL=/usr/bin/bash
+
+# Set permissions on /home to allow arbitrary users to write
+RUN chgrp -R 0 /home
+
 RUN apt-get update --yes && \
     # - apt-get upgrade is run to patch known vulnerabilities in apt-get packages as
     #   the ubuntu base image is rebuilt too seldom sometimes (less than once a month)
