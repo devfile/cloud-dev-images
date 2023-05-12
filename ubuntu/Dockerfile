@@ -1,6 +1,6 @@
 FROM docker.io/ubuntu:23.04
 
-# Set HOME so that CRI-o can patch
+# Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
 ENV HOME=/home/ubuntu
 
 # Set SHELL to configure the default shell used in web terminals
