@@ -15,7 +15,7 @@ ENV CURL_VERSION="7.88.1-10ubuntu1"
 # renovate: datasource=repology depName=ubuntu_23_10/ca-certificates versioning=loose
 ENV CA_CERTIFICATES_VERSION="20230311ubuntu1"
 # renovate: datasource=repology depName=ubuntu_23_10/git versioning=loose
-ENV GIT_VERSION="1:2.39.2-1ubuntu1.1"
+ENV GIT_VERSION="1:2.40.1-1ubuntu1"
 RUN apt-get update --yes && \
     apt-get upgrade --yes && \
     apt-get install --yes --no-install-recommends \
