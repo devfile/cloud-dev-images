@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.8-1009
+FROM registry.access.redhat.com/ubi8/ubi:8.8-1032.1692772289
 
 # Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
 ENV HOME=/home/user
