@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.2-696
+FROM registry.access.redhat.com/ubi9/ubi:9.2-722.1692769367
 
 CMD ["tail", "-f", "/dev/null"]
 
