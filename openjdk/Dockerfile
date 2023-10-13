@@ -1,4 +1,4 @@
-FROM docker.io/openjdk:21-ea-19-jdk
+FROM docker.io/openjdk:22-ea-19-jdk
 
 CMD ["tail", "-f", "/dev/null"]
 
