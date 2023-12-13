@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.2-722.1692769367
+FROM registry.access.redhat.com/ubi9/ubi:9.3-1476
 
 # Installa nodejs, required on base images with libcrypto version > 1.1
 # https://github.com/eclipse/che/issues/21778
