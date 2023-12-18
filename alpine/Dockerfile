@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.18.3
+FROM docker.io/alpine:3.19.0
 
 # ENV CURL_VERSION="8.0.1-r0"
 # ENV LIBCRYPTO1_VERSION="1.1.1t-r2"
