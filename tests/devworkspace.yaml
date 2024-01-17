@@ -1,0 +1,17 @@
+kind: DevWorkspace
+apiVersion: workspace.devfile.io/v1alpha2
+metadata:
+  name: dw-TEST_ID
+spec:
+  started: true
+  template:
+    attributes:
+      controller.devfile.io/storage-type: ephemeral
+    components:
+      - name: dev-tooling
+        container:
+          image: CLOUD_DEV_IMAGE
+  contributions:
+    - name: editor
+      kubernetes:
+        name: editor
