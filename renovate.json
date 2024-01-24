@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "regexManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
@@ -12,5 +10,6 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ],
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "automerge": true
 }

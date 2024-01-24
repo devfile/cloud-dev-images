@@ -1,0 +1,54 @@
+Testing CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:busybox / TEST_ID: 400
+
+##############################################
+##                                          ##
+##           CREATE EDITOR CR               ##
+##                                          ##
+##############################################
+EDITOR_IMAGE: quay.io/che-incubator-pull-requests/che-code:pr-324-amd64
+devworkspacetemplate.workspace.devfile.io/editor created
+
+##############################################
+##                                          ##
+##             CREATE DW CR                 ##
+##                                          ##
+##############################################
+devworkspace.workspace.devfile.io/dw-400 created
+
+##############################################
+##                                          ##
+##    WAIT FOR DEPLOYMENT AVAILABILITY      ##
+##                                          ##
+##############################################
+deployment.apps/workspace18984af656a84730 condition met
+
+##############################################
+##                                          ##
+##           WAIT FOR POD READY             ##
+##                                          ##
+##############################################
+pod/workspace18984af656a84730-6b66c4d9cc-wh2tl condition met
+
+##############################################
+##                                          ##
+##       READ VS CODE ENTRYPOINT LOGS       ##
+##           LOOK FOR STRING                ##
+##         "Web UI available at ..."        ##
+##                                          ##
+##############################################
+FAILURE: Did not find expected string in VS Code entrypoint logs
+Look at VS Code startup logs in ./tests/logs/busybox_vscode_entrypoint_logs.txt
+
+##############################################
+##                                          ##
+##                DELETING DW               ##
+##                                          ##
+##############################################
+devworkspace.workspace.devfile.io "dw-400" deleted
+
+##############################################
+##                                          ##
+##              DELETING DWT                ##
+##                                          ##
+##############################################
+devworkspacetemplate.workspace.devfile.io "editor" deleted

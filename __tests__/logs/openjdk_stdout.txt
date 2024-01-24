@@ -1,0 +1,54 @@
+Testing CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:openjdk / TEST_ID: 072
+
+##############################################
+##                                          ##
+##           CREATE EDITOR CR               ##
+##                                          ##
+##############################################
+EDITOR_IMAGE: quay.io/che-incubator-pull-requests/che-code:pr-324-amd64
+devworkspacetemplate.workspace.devfile.io/editor created
+
+##############################################
+##                                          ##
+##             CREATE DW CR                 ##
+##                                          ##
+##############################################
+devworkspace.workspace.devfile.io/dw-072 created
+
+##############################################
+##                                          ##
+##    WAIT FOR DEPLOYMENT AVAILABILITY      ##
+##                                          ##
+##############################################
+deployment.apps/workspace2170efbc7a194ed4 condition met
+
+##############################################
+##                                          ##
+##           WAIT FOR POD READY             ##
+##                                          ##
+##############################################
+pod/workspace2170efbc7a194ed4-75df5bdb8b-7l76c condition met
+
+##############################################
+##                                          ##
+##       READ VS CODE ENTRYPOINT LOGS       ##
+##           LOOK FOR STRING                ##
+##         "Web UI available at ..."        ##
+##                                          ##
+##############################################
+Web UI available at http://localhost:3100/
+SUCCESS: Found expected string in VS Code entrypoint logs
+
+##############################################
+##                                          ##
+##                DELETING DW               ##
+##                                          ##
+##############################################
+devworkspace.workspace.devfile.io "dw-072" deleted
+
+##############################################
+##                                          ##
+##              DELETING DWT                ##
+##                                          ##
+##############################################
+devworkspacetemplate.workspace.devfile.io "editor" deleted

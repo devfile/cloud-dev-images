@@ -1,0 +1,47 @@
+1009550000
+total 8
+drwxrwsrwx. 6 root       1009550000  138 Jan 23 23:43 .
+dr-xr-xr-x. 1 root       root        157 Jan 23 23:43 ..
+drwxr-sr-x. 2 1009550000 1009550000   26 Jan 23 23:43 bin
+drwxr-sr-x. 4 1009550000 1009550000   30 Jan 23 23:43 checode-linux-libc
+drwxr-sr-x. 8 1009550000 1009550000  151 Jan 23 23:43 checode-linux-musl
+-rw-r--r--. 1 1009550000 1009550000   11 Jan 23 23:43 entrypoint-logs.txt
+-rwxr-xr-x. 1 1009550000 1009550000 2623 Jan 23 23:43 entrypoint-volume.sh
+drwxr-sr-x. 3 1009550000 1009550000   18 Jan 23 23:43 remote
+/checode/entrypoint-volume.sh: 41: openssl: not found
+OpenSSL command is available, the version is: 
+/checode/entrypoint-volume.sh: 42: openssl: not found
+OpenSSL major version is .
+WARNING: Unsupported OpenSSL major version , linux-libc ubi8-based assembly will be used by default...
+Node.js dir for running VS Code: /checode/checode-linux-libc/ubi8
+/checode/checode-linux-libc/ubi8/node: error while loading shared libraries: libbrotlidec.so.1: cannot open shared object file: No such file or directory
+time="2024-01-23T23:44:00Z" level=info msg="Default 'info' log level is applied"
+time="2024-01-23T23:44:00Z" level=info msg="Exec containers configuration:"
+time="2024-01-23T23:44:00Z" level=info msg="==> Debug level info"
+time="2024-01-23T23:44:00Z" level=info msg="==> Application url 0.0.0.0:3333"
+time="2024-01-23T23:44:00Z" level=info msg="==> Absolute path to folder with static resources "
+time="2024-01-23T23:44:00Z" level=info msg="==> Use bearer token: false"
+time="2024-01-23T23:44:00Z" level=info msg="==> Pod selector: controller.devfile.io/devworkspace_id=workspace87847f90e56a4167"
+time="2024-01-23T23:44:00Z" level=info msg="==> Idle timeout: 30m0s"
+time="2024-01-23T23:44:00Z" level=info msg="==> Stop retry period: 10s"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /connect                  --> main.main.func2 (3 handlers)
+[GIN-debug] GET    /attach/:id               --> main.main.func3 (3 handlers)
+[GIN-debug] POST   /exec/config              --> main.main.func4 (3 handlers)
+[GIN-debug] POST   /exec/init                --> main.main.func5 (3 handlers)
+[GIN-debug] POST   /activity/tick            --> main.main.func6 (3 handlers)
+[GIN-debug] GET    /healthz                  --> main.main.func7 (3 handlers)
+⇩ Registered RPCRoutes:
+
+Json-rpc MachineExec Routes:
+✓ create
+✓ check
+✓ resize
+✓ listContainers
+time="2024-01-23T23:44:00Z" level=info msg="Activity tracker is run and workspace will be stopped in 30m0s if there is no activity"
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:3333
