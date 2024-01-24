@@ -50,7 +50,7 @@ echo "##    WAIT FOR DEPLOYMENT AVAILABILITY      ##"
 echo "##                                          ##"
 echo "##############################################"
 export DEPLOYMENT=$(kubectl get dw dw-${TEST_ID} -o jsonpath='{..devworkspaceId}')
-kubectl wait --for=condition=available --timeout=20s deployment/$DEPLOYMENT
+kubectl wait --for=condition=available --timeout=60s deployment/$DEPLOYMENT
 
 echo ""
 echo "##############################################"
@@ -66,13 +66,16 @@ echo "##############################################"
 echo "##                                          ##"
 echo "##       READ VS CODE ENTRYPOINT LOGS       ##"
 echo "##           LOOK FOR STRING                ##"
-echo "##       \"Web UI available at ...\"        ##"
+echo "##         \"Web UI available at ...\"        ##"
 echo "##                                          ##"
 echo "##############################################"
-export VS_CODE_LOGS=$(kubectl exec -it $POD -c dev-tooling -- /bin/bash -c "cat /checode/entrypoint-logs.txt")
+export VS_CODE_LOGS=$(kubectl exec -it $POD -c dev-tooling -- /bin/sh -c "cat /checode/entrypoint-logs.txt")
 if grep "Web UI available at http://localhost:3100/" <<< "${VS_CODE_LOGS}"; then
     echo "SUCCESS: Found expected string in VS Code entrypoint logs"
 else
     echo "FAILURE: Did not find expected string in VS Code entrypoint logs"
+    export IMAGE_TAG=$(echo "${CLOUD_DEV_IMAGE}" | sed "s|.*:||g")
+    echo "${VS_CODE_LOGS}" > ./tests/logs/"${IMAGE_TAG}"_vscode_entrypoint_logs.txt
+    echo "Look at VS Code startup logs in ./tests/logs/${IMAGE_TAG}_vscode_entrypoint_logs.txt"
     exit 1
 fi

@@ -14,10 +14,10 @@ RUN chgrp -R 0 /home
 # until we fix https://github.com/eclipse/che/issues/21778
 # c.f. https://github.com/che-incubator/che-code/pull/317
 RUN \
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
-export NVM_DIR="$HOME/.nvm" && \
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-nvm install 18.18.0
+ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
+ export NVM_DIR="$HOME/.nvm" && \
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+ nvm install 18.18.0
 ENV VSCODE_NODEJS_RUNTIME_DIR="$HOME/.nvm/versions/node/v18.18.0/bin/"
 
 CMD ["tail", "-f", "/dev/null"]
