@@ -1,4 +1,4 @@
-[![ci](https://github.com/l0rd/cloud-dev-images/actions/workflows/image-build.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/image-build.yaml)
+[![ci](https://github.com/l0rd/cloud-dev-images/actions/workflows/main-branch-push.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/main-branch-push.yaml)
 
 ## Alpine based
 
@@ -20,7 +20,7 @@
   -rwxr-xr-x    1 10011100 10011100      2838 Apr 26 22:55 entrypoint-volume.sh
   time="2023-04-26T22:55:11Z" level=info msg="Default 'info' log level is applied"
   time="2023-04-26T22:55:11Z" level=info msg="Exec containers configuration:"
-  time="2023-04-26T22:55:11Z" level=info msg="==> Debug level info" 
+  time="2023-04-26T22:55:11Z" level=info msg="==> Debug level info"
   time="2023-04-26T22:55:11Z" level=info msg="==> Application url 0.0.0.0:3333"
   time="2023-04-26T22:55:11Z" level=info msg="==> Absolute path to folder with static resources "
   time="2023-04-26T22:55:11Z" level=info msg="==> Use bearer token: false"
