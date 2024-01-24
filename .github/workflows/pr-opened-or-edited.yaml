@@ -1,0 +1,102 @@
+name: pr-check
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+    branches: [main]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            alpine:
+              - 'alpine/**'
+            busybox:
+              - 'busybox/**'
+            docker:
+              - 'docker/**'
+            fedora:
+              - 'fedora/**'
+            golang:
+              - 'golang/**'
+            openjdk:
+              - 'openjdk/**'
+            ubi8:
+              - 'ubi8/**'
+            ubi9:
+              - 'ubi9/**'
+            ubuntu:
+              - 'ubuntu/**'
+      - name: Build and push alpine
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.alpine == 'true'
+        with:
+          context: alpine
+          push: true
+          tags: ttl.sh/cloud-dev-images-alpine
+      - name: Build and push busybox
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.busybox == 'true'
+        with:
+          context: busybox
+          push: true
+          tags: ttl.sh/cloud-dev-images-busybox
+      - name: Build and push docker
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.docker == 'true'
+        with:
+          context: docker
+          push: true
+          tags: ttl.sh/cloud-dev-images-docker
+      - name: Build and push fedora
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.fedora == 'true'
+        with:
+          context: fedora
+          push: true
+          tags: ttl.sh/cloud-dev-images-fedora
+      - name: Build and push golang
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.golang == 'true'
+        with:
+          context: golang
+          push: true
+          tags: ttl.sh/cloud-dev-images-golang
+      - name: Build and push openjdk
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.openjdk == 'true'
+        with:
+          context: openjdk
+          push: true
+          tags: ttl.sh/cloud-dev-images-openjdk
+      - name: Build and push ubi8
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.ubi8 == 'true'
+        with:
+          context: ubi8
+          push: true
+          tags: ttl.sh/cloud-dev-images-ubi8
+      - name: Build and push ubi9
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.ubi9 == 'true'
+        with:
+          context: ubi9
+          push: true
+          tags: ttl.sh/cloud-dev-images-ubi9
+      - name: Build and push ubuntu
+        uses: docker/build-push-action@v4
+        if: steps.filter.outputs.ubuntu == 'true'
+        with:
+          context: ubuntu
+          push: true
+          tags: ttl.sh/cloud-dev-images-ubuntu
