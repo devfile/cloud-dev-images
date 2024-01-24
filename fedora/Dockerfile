@@ -1,4 +1,4 @@
-FROM docker.io/fedora:39
+FROM docker.io/fedora:40
 
 # Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
 ENV HOME=/home/user
