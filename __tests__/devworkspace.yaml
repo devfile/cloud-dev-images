@@ -14,4 +14,4 @@ spec:
   contributions:
     - name: editor
       kubernetes:
-        name: editor
+        name: editor-TEST_ID
