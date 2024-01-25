@@ -1,14 +1,14 @@
-name: alpine-vscode-startup
+name: ubi8-vscode-startup
 
 on:
   workflow_run:
-    workflows: [alpine-build"]
+    workflows: [ubi8-build"]
     branches: [main]
     types:
       - completed
 
 env:
-  CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:alpine
+  CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:ubi8
   EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
   CLUSTER_URL: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
   CLUSTER_TOKEN: ${{ secrets.DEV_SANDBOX_TOKEN }}
