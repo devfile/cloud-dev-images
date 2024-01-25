@@ -23,7 +23,7 @@ function cleanup {
     echo "##              DELETING DWT                ##"
     echo "##                                          ##"
     echo "##############################################"
-    kubectl delete dwt/editor
+    kubectl delete dwt/editor-${TEST_ID}
 }
 trap cleanup EXIT
 
@@ -34,7 +34,7 @@ echo "##           CREATE EDITOR CR               ##"
 echo "##                                          ##"
 echo "##############################################"
 echo "EDITOR_IMAGE: ${EDITOR_IMAGE}"
-export EDITOR_CONTRIB=$(cat "${SCRIPT_DIR}"/editor-contribution.yaml | sed "s|IMAGE_NAME|${EDITOR_IMAGE}|g")
+export EDITOR_CONTRIB=$(cat "${SCRIPT_DIR}"/editor-contribution.yaml | sed "s|IMAGE_NAME|${EDITOR_IMAGE}|g" | sed "s|TEST_ID|${TEST_ID}|g")
 kubectl apply -f - <<< "${EDITOR_CONTRIB}"
 
 echo ""
