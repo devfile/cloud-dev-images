@@ -3,7 +3,10 @@ set -euo pipefail
 
 CLOUD_DEV_IMAGE=${CLOUD_DEV_IMAGE:-"quay.io/mloriedo/cloud-dev-images:ubi9"}
 EDITOR_IMAGE=${EDITOR_IMAGE:-"quay.io/che-incubator/che-code:insiders"}
+
 TEST_ID=$(printf "%03d" $((RANDOM % 1000)))
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 echo "Testing CLOUD_DEV_IMAGE: ${CLOUD_DEV_IMAGE} / TEST_ID: ${TEST_ID}"
 
 function cleanup {
@@ -31,7 +34,7 @@ echo "##           CREATE EDITOR CR               ##"
 echo "##                                          ##"
 echo "##############################################"
 echo "EDITOR_IMAGE: ${EDITOR_IMAGE}"
-export EDITOR_CONTRIB=$(cat ./tests/editor-contribution.yaml | sed "s|IMAGE_NAME|${EDITOR_IMAGE}|g")
+export EDITOR_CONTRIB=$(cat "${SCRIPT_DIR}"/editor-contribution.yaml | sed "s|IMAGE_NAME|${EDITOR_IMAGE}|g")
 kubectl apply -f - <<< "${EDITOR_CONTRIB}"
 
 echo ""
@@ -40,7 +43,7 @@ echo "##                                          ##"
 echo "##             CREATE DW CR                 ##"
 echo "##                                          ##"
 echo "##############################################"
-export DW=$(cat ./tests/devworkspace.yaml | sed "s|CLOUD_DEV_IMAGE|${CLOUD_DEV_IMAGE}|g" | sed "s|TEST_ID|${TEST_ID}|g")
+export DW=$(cat "${SCRIPT_DIR}"/devworkspace.yaml | sed "s|CLOUD_DEV_IMAGE|${CLOUD_DEV_IMAGE}|g" | sed "s|TEST_ID|${TEST_ID}|g")
 kubectl apply -f - <<< "${DW}"
 
 echo ""
@@ -75,7 +78,7 @@ if grep "Web UI available at http://localhost:3100/" <<< "${VS_CODE_LOGS}"; then
 else
     echo "FAILURE: Did not find expected string in VS Code entrypoint logs"
     export IMAGE_TAG=$(echo "${CLOUD_DEV_IMAGE}" | sed "s|.*:||g")
-    echo "${VS_CODE_LOGS}" > ./tests/logs/"${IMAGE_TAG}"_vscode_entrypoint_logs.txt
-    echo "Look at VS Code startup logs in ./tests/logs/${IMAGE_TAG}_vscode_entrypoint_logs.txt"
+    echo "${VS_CODE_LOGS}" > "${SCRIPT_DIR}"/logs/"${IMAGE_TAG}"_vscode_entrypoint_logs.txt
+    echo "Look at VS Code startup logs in "${SCRIPT_DIR}"/logs/${IMAGE_TAG}_vscode_entrypoint_logs.txt"
     exit 1
 fi
