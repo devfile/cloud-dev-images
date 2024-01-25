@@ -1,0 +1,25 @@
+name: busybox-vscode-startup
+
+on:
+  workflow_run:
+    workflows: [busybox-build]
+    branches: [main]
+    types:
+      - completed
+
+env:
+  CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:busybox
+  EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
+  CLUSTER_URL: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
+  CLUSTER_TOKEN: ${{ secrets.DEV_SANDBOX_TOKEN }}
+
+jobs:
+  vscode-startup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to Dev Sandbox
+        run: oc login --token=${{ env.CLUSTER_TOKEN }} --server=${{ env.CLUSTER_URL }}
+      - name: Run Test
+        run: ${PWD}/__tests__/test-editor-startup-in-image.sh
