@@ -2,7 +2,7 @@ name: alpine-vscode-startup
 
 on:
   workflow_run:
-    workflows: [alpine-build"]
+    workflows: [alpine-build]
     branches: [main]
     types:
       - completed

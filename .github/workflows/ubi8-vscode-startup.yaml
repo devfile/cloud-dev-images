@@ -2,7 +2,7 @@ name: ubi8-vscode-startup
 
 on:
   workflow_run:
-    workflows: [ubi8-build"]
+    workflows: [ubi8-build]
     branches: [main]
     types:
       - completed
