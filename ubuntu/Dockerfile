@@ -19,9 +19,9 @@ RUN chgrp -R 0 /home
 
 # Install curl and ca_certificates (required to install nodejs) and git (optional)
 # renovate: datasource=repology depName=ubuntu_24_04/curl versioning=loose
-ENV CURL_VERSION="8.5.0-2ubuntu1"
+ENV CURL_VERSION="8.5.0-2ubuntu2"
 # renovate: datasource=repology depName=ubuntu_24_04/ca-certificates versioning=loose
-ENV CA_CERTIFICATES_VERSION="20230311ubuntu1"
+ENV CA_CERTIFICATES_VERSION="20240203"
 # renovate: datasource=repology depName=ubuntu_24_04/git versioning=loose
 ENV GIT_VERSION="1:2.43.0-1ubuntu1"
 RUN apt-get update --yes && \
