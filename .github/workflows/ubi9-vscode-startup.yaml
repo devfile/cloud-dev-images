@@ -1,25 +1,31 @@
 name: ubi9-vscode-startup
 
 on:
-  workflow_run:
-    workflows: [ubi9-build]
-    branches: [main]
-    types:
-      - completed
+  workflow_dispatch:
+    inputs:
+      sandboxToken:
+        description: "Red Hat Developer Sandbox Token"
+        required: true
+        type: string
 
 env:
   CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:ubi9
   EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
   CLUSTER_URL: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
-  CLUSTER_TOKEN: ${{ secrets.DEV_SANDBOX_TOKEN }}
 
 jobs:
   vscode-startup:
     runs-on: ubuntu-latest
     steps:
+      - name: Mask Sandbox Token # https://github.com/actions/runner/issues/643
+        id: mask-sandbox-token
+        run: |
+          token=$(jq -r '.inputs.sandboxToken' $GITHUB_EVENT_PATH)
+          echo "::add-mask::$token"
+          echo "cluster-token=$token" >> "$GITHUB_OUTPUT"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Login to Dev Sandbox
-        run: oc login --token=${{ env.CLUSTER_TOKEN }} --server=${{ env.CLUSTER_URL }}
+        run: oc login --token=${{ steps.mask-sandbox-token.outputs.cluster-token }} --server=${{ env.CLUSTER_URL }}
       - name: Run Test
         run: ${PWD}/__tests__/test-editor-startup-in-image.sh

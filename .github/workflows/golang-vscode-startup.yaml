@@ -17,7 +17,7 @@ jobs:
   vscode-startup:
     runs-on: ubuntu-latest
     steps:
-      - name: Mask Sandbox Token
+      - name: Mask Sandbox Token # https://github.com/actions/runner/issues/643
         id: mask-sandbox-token
         run: |
           token=$(jq -r '.inputs.sandboxToken' $GITHUB_EVENT_PATH)
