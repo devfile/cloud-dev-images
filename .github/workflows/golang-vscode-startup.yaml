@@ -20,7 +20,7 @@ jobs:
       - name: Mask Sandbox Token
         id: mask-sandbox-token
         run: |
-          token=${{ inputs.sandboxToken }}
+          token=$(jq -r '.inputs.sandboxToken' $GITHUB_EVENT_PATH)
           echo "::add-mask::$token"
           echo "cluster-token=$token" >> "$GITHUB_OUTPUT"
       - name: Checkout
