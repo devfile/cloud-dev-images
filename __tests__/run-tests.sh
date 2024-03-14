@@ -35,7 +35,7 @@ for tag in "${CLOUD_DEV_IMAGES_TAGS[@]}"; do
     SECONDS=0
     export CLOUD_DEV_IMAGE=quay.io/mloriedo/cloud-dev-images:"${tag}"
     echo -n "Testing editor startup in image ${CLOUD_DEV_IMAGE}..."
-    if "${SCRIPT_DIR}/test-editor-startup-in-image.sh  > "${SCRIPT_DIR}/logs/"${tag}"_stdout.txt 2> "${SCRIPT_DIR}/logs/"${tag}"_stderr.txt; then
+    if "${SCRIPT_DIR}"/test-editor-startup-in-image.sh  > "${SCRIPT_DIR}"/logs/"${tag}"_stdout.txt 2> "${SCRIPT_DIR}"/logs/"${tag}"_stderr.txt; then
         duration=$SECONDS
         echo "started in $duration sec."
     else

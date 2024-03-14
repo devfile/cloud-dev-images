@@ -1,2 +1,2 @@
-tests/logs/*
+__tests__/logs/*
 .DS_Store
