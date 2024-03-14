@@ -1,6 +1,6 @@
 # Cloud Dev Images
 
-A list of `Dockerfiles`, using different base images, to customize Eclipe Che and OpenShift Dev Spaces Cloud Development Environments.
+A list of `Dockerfilez`, using different base images, to customize Eclipe Che and OpenShift Dev Spaces Cloud Development Environments.
 
 |            |            |             |                 |        |
 |------------|------------|-------------|-----------------|--------|
