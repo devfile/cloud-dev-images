@@ -1,17 +1,23 @@
 name: golang-vscode-startup
 
 on:
-  workflow_run:
-    workflows: [golang-build]
-    branches: [main]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: [golang-build]
+  #   branches: [main]
+  #   types:
+  #     - completed
+  workflow_dispatch:
+    inputs:
+      sandboxToken:
+        description: "Red Hat Developer Sandbox Token"
+        required: true
+        type: string
 
 env:
   CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:golang
   EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
   CLUSTER_URL: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
-  CLUSTER_TOKEN: ${{ secrets.DEV_SANDBOX_TOKEN }}
+  CLUSTER_TOKEN: ${{ inputs.sandboxToken }}
 
 jobs:
   vscode-startup:
