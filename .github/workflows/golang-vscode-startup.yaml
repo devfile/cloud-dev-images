@@ -17,11 +17,13 @@ jobs:
   vscode-startup:
     runs-on: ubuntu-latest
     steps:
-      - name: Add Mask
-        run: echo "::add-mask::${{ inputs.sandboxToken }}"
+      - name: Mask Sandbox Token
+        run: |
+          echo "::add-mask::${{ inputs.sandboxToken }}"
+          echo "CLUSTER_TOKEN=${{ inputs.sandboxToken }}" >> "$GITHUB_OUTPUT"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Login to Dev Sandbox
-        run: oc login --token=${{ inputs.sandboxToken }} --server=${{ env.CLUSTER_URL }}
+        run: oc login --token=${{ env.CLUSTER_TOKEN }} --server=${{ env.CLUSTER_URL }}
       - name: Run Test
         run: ${PWD}/__tests__/test-editor-startup-in-image.sh
