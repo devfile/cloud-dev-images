@@ -7,6 +7,6 @@ ENV HOME=/home/user
 ENV SHELL=/usr/bin/bash
 
 # Set permissions on /home to allow arbitrary users to write
-RUN chgrp -R 0 /home
+RUN mkdir /home/user && chgrp -R 0 /home/ && chmod -R g=u /home/
 
 CMD ["tail", "-f", "/dev/null"]
