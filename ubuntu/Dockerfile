@@ -23,7 +23,7 @@ ENV CURL_VERSION="8.5.0-2ubuntu9"
 # renovate: datasource=repology depName=ubuntu_24_04/ca-certificates versioning=loose
 ENV CA_CERTIFICATES_VERSION="20240203"
 # renovate: datasource=repology depName=ubuntu_24_04/git versioning=loose
-ENV GIT_VERSION="1:2.43.0-1ubuntu1"
+ENV GIT_VERSION="1:2.43.0-1ubuntu6"
 RUN apt-get update --yes && \
    apt-get upgrade --yes && \
    apt-get install --yes --no-install-recommends \
