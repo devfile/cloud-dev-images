@@ -79,7 +79,7 @@ echo "##                                          ##"
 echo "##############################################"
 VS_CODE_LOGS=$(kubectl exec -it "${POD}" -c dev-tooling -- /bin/sh -c "cat /checode/entrypoint-logs.txt")
 export VS_CODE_LOGS
-if grep "Web UI available at http://localhost:3100/" <<< "${VS_CODE_LOGS}"; then
+if grep "Web UI available at http://localhost:3100" <<< "${VS_CODE_LOGS}"; then
     echo "SUCCESS: Found expected string in VS Code entrypoint logs"
 else
     echo "FAILURE: Did not find expected string in VS Code entrypoint logs"
