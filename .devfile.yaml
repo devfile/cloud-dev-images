@@ -6,9 +6,8 @@ attributes:
 components:
   - name: tools
     container:
-      image: quay.io/mloriedo/cloud-dev-images:alpine
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
       memoryRequest: 1Gi
       memoryLimit: 8Gi
       cpuLimit: '4'
       cpuRequest: '0.5'
-
