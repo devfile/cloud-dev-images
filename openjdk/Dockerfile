@@ -1,4 +1,4 @@
-FROM docker.io/openjdk:22-ea-19-jdk
+FROM docker.io/openjdk:24-ea-19-jdk
 
 # Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
 ENV HOME=/home/user
