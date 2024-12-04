@@ -1,4 +1,4 @@
-FROM docker.io/golang:1.23.3
+FROM docker.io/golang:1.23.4
 
 # Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
 ENV HOME=/home/user
