@@ -11,7 +11,7 @@ on:
 env:
   CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:golang
   EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
-  CLUSTER_URL: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
+  CLUSTER_URL: https://api.rm1.0a51.p1.openshiftapps.com:6443
 
 jobs:
   vscode-startup:
