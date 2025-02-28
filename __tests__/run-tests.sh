@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-CLUSTER_URL=${CLUSTER_URL:-"https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443"}
+CLUSTER_URL=${CLUSTER_URL:-"https://api.rm1.0a51.p1.openshiftapps.com:6443"}
 EDITOR_IMAGE=${EDITOR_IMAGE:-"quay.io/che-incubator/che-code:insiders"}
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
