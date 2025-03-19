@@ -37,7 +37,7 @@ spec:
               urlRewriteSupported: true
             targetPort: 3100
             exposure: public
-            secure: false
+            secure: true
             protocol: https
     - name: checode
       volume: { ephemeral: true }
