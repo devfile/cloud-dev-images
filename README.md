@@ -15,3 +15,19 @@ A list of `Dockerfiles`, using different base images, to customize Eclipe Che an
 | ubi8 | [Dockerfile](https://github.com/l0rd/cloud-dev-images/blob/main/ubi8/Dockerfile) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi8-build.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi8-build.yaml) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi8-vscode-startup.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi8-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubi8&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubi8&che-editor=che-incubator/che-code/insiders) |
 | ubi9 | [Dockerfile](https://github.com/l0rd/cloud-dev-images/blob/main/ubi9/Dockerfile) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi9-build.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi9-build.yaml) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi9-vscode-startup.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubi9-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubi9&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubi9&che-editor=che-incubator/che-code/insiders) |
 | ubuntu | [Dockerfile](https://github.com/l0rd/cloud-dev-images/blob/main/ubuntu/Dockerfile) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubuntu-build.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubuntu-build.yaml) | [![build](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubuntu-vscode-startup.yaml/badge.svg)](https://github.com/l0rd/cloud-dev-images/actions/workflows/ubuntu-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubuntu&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/l0rd/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:ubuntu&che-editor=che-incubator/che-code/insiders) |
+
+## How to run the tests
+
+### Requirements
+
+- An OpenShift cluster with the DevWorkspace Operator (developer sandbox)
+- Linux or macOS with `oc` and `kubectl`
+
+### Running the tests
+
+```bash
+export CLUSTER_URL="https://api.rm1.0a51.p1.openshiftapps.com:6443"
+export CLUSTER_TOKEN="<token>"
+export EDITOR_IMAGE="quay.io/che-incubator/che-code:insiders"
+./run-tests.sh
+```
