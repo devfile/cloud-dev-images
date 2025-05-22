@@ -33,6 +33,11 @@ jobs:
           token=$(jq -r '.inputs.sandboxToken' $GITHUB_EVENT_PATH)
           echo "::add-mask::$token"
           echo "cluster-token=$token" >> "$GITHUB_OUTPUT"
+      - name: Install oc
+        run: |
+          wget https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz
+          tar -xvf oc.tar.gz
+          sudo mv oc /usr/local/bin/
       - name: Checkout
         uses: actions/checkout@v4
       - name: Login to Dev Sandbox
