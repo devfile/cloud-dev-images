@@ -1,0 +1,46 @@
+name: docker-vscode-startup
+
+on:
+  workflow_dispatch:
+    inputs:
+      sandboxURL:
+        description: "Red Hat Developer Sandbox Cluster URL"
+        required: false
+        default: "https://api.rm1.0a51.p1.openshiftapps.com:6443"
+        type: string
+      sandboxToken:
+        description: "Red Hat Developer Sandbox Cluster Token"
+        required: true
+        type: string
+      editorImage:
+        description: "Dev Spaces editor image"
+        required: false
+        default: "quay.io/che-incubator/che-code:insiders"
+        type: string
+
+env:
+  CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:docker
+  EDITOR_IMAGE: ${{ inputs.editorImage }}
+  CLUSTER_URL: ${{ inputs.sandboxURL }}
+
+jobs:
+  vscode-startup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mask Sandbox Token # https://github.com/actions/runner/issues/643
+        id: mask-sandbox-token
+        run: |
+          token=$(jq -r '.inputs.sandboxToken' $GITHUB_EVENT_PATH)
+          echo "::add-mask::$token"
+          echo "cluster-token=$token" >> "$GITHUB_OUTPUT"
+      - name: Install oc
+        run: |
+          wget https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz
+          tar -xvf oc.tar.gz
+          sudo mv oc /usr/local/bin/
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to Dev Sandbox
+        run: oc login --token=${{ steps.mask-sandbox-token.outputs.cluster-token }} --server=${{ env.CLUSTER_URL }}
+      - name: Run Test
+        run: ${PWD}/__tests__/test-editor-startup-in-image.sh
