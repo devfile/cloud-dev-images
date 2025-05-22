@@ -3,15 +3,25 @@ name: alpine-vscode-startup
 on:
   workflow_dispatch:
     inputs:
+      sandboxURL:
+        description: "Red Hat Developer Sandbox Cluster URL"
+        required: false
+        default: "https://api.rm1.0a51.p1.openshiftapps.com:6443"
+        type: string
       sandboxToken:
-        description: "Red Hat Developer Sandbox Token"
+        description: "Red Hat Developer Sandbox Cluster Token"
         required: true
+        type: string
+      editorImage:
+        description: "Dev Spaces editor image"
+        required: false
+        default: "quay.io/che-incubator/che-code:insiders"
         type: string
 
 env:
   CLOUD_DEV_IMAGE: quay.io/mloriedo/cloud-dev-images:alpine
-  EDITOR_IMAGE: quay.io/che-incubator/che-code:insiders
-  CLUSTER_URL: https://api.rm1.0a51.p1.openshiftapps.com:6443
+  EDITOR_IMAGE: ${{ inputs.editorImage }}
+  CLUSTER_URL: ${{ inputs.sandboxURL }}
 
 jobs:
   vscode-startup:
