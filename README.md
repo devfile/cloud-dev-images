@@ -48,7 +48,12 @@ export EDITOR_IMAGE="quay.io/che-incubator/che-code:insiders"
 export CLUSTER_URL="https://api.rm1.0a51.p1.openshiftapps.com:6443"
 export CLUSTER_TOKEN="<token>"
 export EDITOR_IMAGE="quay.io/che-incubator/che-code:insiders"
-imgs=( "ubi8" "ubi9" "alpine" "busybox" "docker" "golang" "openjdk" "fedora" "ubuntu" )
 
-for img in "${imgs[@]}"; do gh workflow run ${img}-vscode-startup.yaml -f sandboxURL="${CLUSTER_URL}" -f sandboxToken="${CLUSTER_TOKEN}" -f editorImage="${EDITOR_IMAGE}"; done
+imgs=( "ubi8" "ubi9" "alpine" "busybox" "docker" "golang" "openjdk" "fedora" "ubuntu" )
+for img in "${imgs[@]}"; do
+    gh workflow run ${img}-vscode-startup.yaml \
+                 -f sandboxURL="${CLUSTER_URL}" \
+                 -f sandboxToken="${CLUSTER_TOKEN}" \
+                 -f editorImage="${EDITOR_IMAGE}"
+done
 ```
