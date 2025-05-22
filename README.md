@@ -9,6 +9,7 @@ A list of `Dockerfiles`, using different base images, to customize Eclipe Che an
 |------------|------------|-------------|-----------------|--------|
 | alpine | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/alpine/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/alpine-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/alpine-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/alpine-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/alpine-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:alpine&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:alpine&che-editor=che-incubator/che-code/insiders) |
 | busybox | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/busybox/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/busybox-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/busybox-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/busybox-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/busybox-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:busybox&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:busybox&che-editor=che-incubator/che-code/insiders) |
+| docker | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/docker/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/docker-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/docker-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/docker-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/docker-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:docker&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:docker&che-editor=che-incubator/che-code/insiders) |
 | fedora | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/fedora/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/fedora-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/fedora-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/fedora-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/fedora-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:fedora&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:fedora&che-editor=che-incubator/che-code/insiders) |
 | golang | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/golang/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/golang-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/golang-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/golang-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/golang-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:golang&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:golang&che-editor=che-incubator/che-code/insiders) |
 | openjdk | [Dockerfile](https://github.com/devfile/cloud-dev-images/blob/main/openjdk/Dockerfile) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/openjdk-build.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/openjdk-build.yaml) | [![build](https://github.com/devfile/cloud-dev-images/actions/workflows/openjdk-vscode-startup.yaml/badge.svg)](https://github.com/devfile/cloud-dev-images/actions/workflows/openjdk-vscode-startup.yaml) | [![dogfooding](https://img.shields.io/static/v1?label=dogfooding%20%20%20%20&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:openjdk&che-editor=che-incubator/che-code/insiders) [![devsandbox](https://img.shields.io/static/v1?label=dev%20sandbox&message=vscode&logo=eclipseche&color=FDB940&labelColor=525C86)](https://workspaces.openshift.com/#https://github.com/devfile/cloud-dev-images?image=quay.io/mloriedo/cloud-dev-images:openjdk&che-editor=che-incubator/che-code/insiders) |
@@ -18,16 +19,36 @@ A list of `Dockerfiles`, using different base images, to customize Eclipe Che an
 
 ## How to run the tests
 
-### Requirements
+### Running the tests locally
+
+#### Requirements
 
 - An OpenShift cluster with the DevWorkspace Operator (developer sandbox)
 - Linux or macOS with `oc` and `kubectl`
 
-### Running the tests
+#### Runing the tests
+```bash
+export CLUSTER_URL="https://api.rm1.0a51.p1.openshiftapps.com:6443"
+export CLUSTER_TOKEN="<token>"
+export EDITOR_IMAGE="quay.io/che-incubator/che-code:insiders"
+
+./run-tests.sh
+```
+
+## Running the GH workflows
+
+#### Requirements
+
+- An OpenShift cluster with the DevWorkspace Operator (developer sandbox)
+- Linux or macOS with `gh` (GitHub CLI)
+
+#### Running the tests
 
 ```bash
 export CLUSTER_URL="https://api.rm1.0a51.p1.openshiftapps.com:6443"
 export CLUSTER_TOKEN="<token>"
 export EDITOR_IMAGE="quay.io/che-incubator/che-code:insiders"
-./run-tests.sh
+imgs=( "ubi8" "ubi9" "alpine" "busybox" "docker" "golang" "openjdk" "fedora" "ubuntu" )
+
+for img in "${imgs[@]}"; do gh workflow run ${img}-vscode-startup.yaml -f sandboxURL="${CLUSTER_URL}" -f sandboxToken="${CLUSTER_TOKEN}" -f editorImage="${EDITOR_IMAGE}"; done
 ```
