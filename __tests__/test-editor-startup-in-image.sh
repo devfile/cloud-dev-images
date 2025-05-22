@@ -74,18 +74,25 @@ echo "##############################################"
 echo "##                                          ##"
 echo "##       READ VS CODE ENTRYPOINT LOGS       ##"
 echo "##           LOOK FOR STRING                ##"
-echo "##         \"Web UI available at ...\"        ##"
+echo "##         \"Web UI available at ...\"      ##"
 echo "##                                          ##"
 echo "##############################################"
-VS_CODE_LOGS=$(kubectl exec -it "${POD}" -c dev-tooling -- /bin/sh -c "cat /checode/entrypoint-logs.txt")
-export VS_CODE_LOGS
-if grep "Web UI available at http://localhost:3100" <<< "${VS_CODE_LOGS}"; then
-    echo "SUCCESS: Found expected string in VS Code entrypoint logs"
-else
-    echo "FAILURE: Did not find expected string in VS Code entrypoint logs"
-    IMAGE_TAG=${CLOUD_DEV_IMAGE//*:/}
-    export IMAGE_TAG
-    echo "${VS_CODE_LOGS}" > "${SCRIPT_DIR}"/logs/"${IMAGE_TAG}"_vscode_entrypoint_logs.txt
-    echo "Look at VS Code startup logs in ${SCRIPT_DIR}/logs/${IMAGE_TAG}_vscode_entrypoint_logs.txt"
-    exit 1
-fi
+counter=1
+while [ $counter -le 5 ]; do
+    VS_CODE_LOGS=$(kubectl exec -it "${POD}" -c dev-tooling -- /bin/sh -c "cat /checode/entrypoint-logs.txt")
+    export VS_CODE_LOGS
+    if grep "Web UI available at http://localhost:3100" <<< "${VS_CODE_LOGS}"; then
+        echo "SUCCESS: Found expected string in VS Code entrypoint logs"
+        exit 0
+    else
+        sleep 1
+        ((counter++))
+    fi
+done
+
+echo "FAILURE: Did not find expected string in VS Code entrypoint logs"
+IMAGE_TAG=${CLOUD_DEV_IMAGE//*:/}
+export IMAGE_TAG
+echo "${VS_CODE_LOGS}" > "${SCRIPT_DIR}"/logs/"${IMAGE_TAG}"_vscode_entrypoint_logs.txt
+echo "Look at VS Code startup logs in ${SCRIPT_DIR}/logs/${IMAGE_TAG}_vscode_entrypoint_logs.txt"
+exit 1
