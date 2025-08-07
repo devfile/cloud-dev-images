@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.6-1754380668
+FROM registry.access.redhat.com/ubi9/ubi:9.6-1754586119
 
 # Set SHELL to configure the default shell used in web terminals
 # https://github.com/eclipse/che/issues/22524
