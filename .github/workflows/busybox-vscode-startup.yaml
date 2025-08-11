@@ -39,7 +39,7 @@ jobs:
           tar -xvf oc.tar.gz
           sudo mv oc /usr/local/bin/
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Login to Dev Sandbox
         run: oc login --token=${{ steps.mask-sandbox-token.outputs.cluster-token }} --server=${{ env.CLUSTER_URL }}
       - name: Run Test
