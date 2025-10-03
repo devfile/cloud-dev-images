@@ -1,4 +1,4 @@
-FROM docker.io/docker:28.4.0-dind
+FROM docker.io/docker:28.5.0-dind
 
 CMD ["tail", "-f", "/dev/null"]
 
