@@ -1,4 +1,4 @@
-FROM docker.io/busybox:1.37.0-glibc
+FROM docker.io/busybox:1.38.0-glibc
 
 ENV LD_LIBRARY_PATH=/lib/
 
